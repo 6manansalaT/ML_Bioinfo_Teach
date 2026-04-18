@@ -1,4 +1,6 @@
 from langchain_core.prompts import ChatPromptTemplate
+from rich.console import Console
+from rich.markdown import Markdown
 
 prompt = ChatPromptTemplate.from_messages([
     ("system", "You are an expert {domain} consultant with 10+ years of experience."),
@@ -16,4 +18,6 @@ result = chain.invoke({
     "topic": "can you explain to me what is a SVM, ML, BERT, and embedding?" # this can be the user input
 })
 
-print(result.content)
+# print(result.content)
+console = Console()
+console.print(Markdown(result.text))
