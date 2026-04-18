@@ -1,12 +1,19 @@
+from langchain_core.prompts import ChatPromptTemplate
+
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "You are an expert {domain} consultant with 10+ years of experience."),
+    ("human", "Provide a detailed analysis of: {topic} with a focus of educating users on machine learning concepts under bioinformatics tools.")
+])
+
 from model import llm
 
-from langchain_core.messages import HumanMessage, SystemMessage
+# Chain the prompt with the model
+chain = prompt | llm
 
-messages = [
-    SystemMessage(content="You are a technical writing assistant specializing in API documentation."),
-    HumanMessage(content="Explain the difference between REST and GraphQL APIs in simple terms.")
-]
+# Generate output with specific parameters
+result = chain.invoke({
+    "domain": "bioinformatics, computer science, computational biology",
+    "topic": "can you explain to me what is a SVM, ML, BERT, and embedding?" # this can be the user input
+})
 
-# Generate a response
-response = llm.invoke(messages)
-print(f"Response: {response.content}")
+print(result.content)
