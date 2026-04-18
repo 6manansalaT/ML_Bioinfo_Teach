@@ -1,5 +1,5 @@
-# make this file was 
-# .env.development
+# make this file as .env
+# .env
 GOOGLE_API_KEY=your_actual_google_key_here
 LANGSMITH_API_KEY=your_actual_langsmith_key_here
 LANGSMITH_TRACING=true
