@@ -15,7 +15,7 @@ llm = ChatGoogleGenerativeAI(
     model="gemini-3.1-flash-lite-preview",
     google_api_key=api_key,
     temperature=0.7,
-    max_tokens=1024,
+    max_tokens=4096,
     timeout=30,
     max_retries=2
 )

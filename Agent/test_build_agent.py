@@ -18,6 +18,12 @@ result = chain.invoke({
     "topic": "can you explain to me what is a SVM, ML, BERT, and embedding?" # this can be the user input
 })
 
-# print(result.content)
+if isinstance(result.content,list):
+    #join text blocks to avoid text cut off
+    full_text = "".join([block['text'] for block in result.content if block['type'] == 'text'])
+else: 
+    full_text = result.content
+
+# print with rich
 console = Console()
-console.print(Markdown(result.text))
+console.print(Markdown(full_text))
