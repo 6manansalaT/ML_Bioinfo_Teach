@@ -12,10 +12,13 @@ from model import llm
 # Chain the prompt with the model
 chain = prompt | llm
 
+#user question
+user_question = input("🧬 What ML Bioinformatics topic would you like to learn about today?")
+
 # Generate output with specific parameters
 result = chain.invoke({
-    "domain": "bioinformatics, computer science, computational biology",
-    "topic": "can you explain to me what is a SVM, ML, BERT, and embedding?" # this can be the user input
+    "domain": "bioinformatics, computer science, computational biology, machine learning",
+    "topic": user_question
 })
 
 if isinstance(result.content,list):
