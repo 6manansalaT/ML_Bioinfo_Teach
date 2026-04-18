@@ -1,6 +1,5 @@
 from model import llm
 
-from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage, SystemMessage
 
 messages = [
