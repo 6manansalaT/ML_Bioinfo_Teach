@@ -1,0 +1,2 @@
+# run this after cloning the repo 
+docker build -t hackathon -f Agent/Docker/Dockerfile .

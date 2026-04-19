@@ -6,9 +6,9 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 load_dotenv()
 
 api_key = os.getenv("GOOGLE_API_KEY")
+
 if not api_key:
     raise ValueError("GOOGLE_API_KEY not found. Please set it in your .env file or environment variables.")
-
 
 # Initialize the LLM instance for export
 llm = ChatGoogleGenerativeAI(

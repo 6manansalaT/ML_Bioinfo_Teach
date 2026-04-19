@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy requirements first (improves build caching)
 # Point to the actual location relative to your root
-COPY Agent/Docker/requirements.txt .
+COPY requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
