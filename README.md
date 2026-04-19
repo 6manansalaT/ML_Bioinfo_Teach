@@ -32,7 +32,7 @@ pip install langchain-mcp-adapters
 ~~~
 
 3. Install packages for Rich & Streamlit
-~~~~
+~~~
 pip install streamlit
 pip install streamlit-keypress
 pip install rich
