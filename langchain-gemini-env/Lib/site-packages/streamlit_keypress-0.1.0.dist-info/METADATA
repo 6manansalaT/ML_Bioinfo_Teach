@@ -1,0 +1,64 @@
+Metadata-Version: 2.4
+Name: streamlit-keypress
+Version: 0.1.0
+Summary: A Streamlit component to capture keyboard events
+Home-page: https://github.com/sud900/streamlit-keypress
+Author: Sudarsan
+Author-email: sudarsan900@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: streamlit>=1.0.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Streamlit Keypress
+
+A Streamlit component that captures keyboard events in your Streamlit app.
+
+## Installation
+
+```bash
+pip install streamlit-keypress
+```
+
+## Usage
+
+```python
+import streamlit as st
+from streamlit_keypress import key_press_events
+
+st.title("Keyboard Event Listener")
+
+key = key_press_events()
+if key:
+    st.write(f"You pressed: {key}")
+```
+
+
+![Demo Usage](docs/image.png)
+
+## Features
+
+- Captures keyboard events throughout your Streamlit app
+- Returns the key that was pressed
+- Simple and lightweight
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
