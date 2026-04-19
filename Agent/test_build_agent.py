@@ -1,6 +1,5 @@
 import os
-import asyncio
-from model import llm
+from Agent.model import llm
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 from rich.console import Console
@@ -41,7 +40,7 @@ def build_agent(user_question):
     return res_string
 '''
 
-console = Console()
+console = Console(record=True)
 
 async def main(user_topic):
     instruction = (
@@ -89,8 +88,3 @@ Explain clearly and accurately, and keep the response educational."""
 
             except Exception as e:
                 console.print(f"[bold red]Error during execution:[/bold red] {e}")
-
-if __name__ == "__main__":
-    asyncio.run(main())
-
-
