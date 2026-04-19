@@ -1,4 +1,6 @@
-Agent/.env.env
+Agent/.env
 __pycache__/
 *.pyc
 token.txt
+0.1.0
+.env:2
