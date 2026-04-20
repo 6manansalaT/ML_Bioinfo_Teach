@@ -11,7 +11,7 @@ educational information via a MCP server and a simple user web-interface.
 
 
 ### Installation + Setup Requirements:
-1. Set up virtual environment for best results
+1. Git Clone and set up virtual environment for best results
 ~~~
 python -m venv langchain-gemini-env
 ~~~
@@ -43,4 +43,16 @@ pip install rich
 streamlit run streamlit_app.py
 ~~~
 
-5. Enter any topic to learn about its ML concepts and recent applications in research.
+    If that fails to run, change your current working directory as ML_Bioinfo_Teach and run this below.
+    ~~~
+    PYTHONPATH=. python -m streamlit run streamlit_app.py
+    ~~~
+    
+5. Set up .env in the ML_Bioinfo_Teach/Agent directory with your API keys.
+~~~
+GOOGLE_API_KEY=#####
+LANGSMITH_API_KEY=#####
+LANGSMITH_TRACING=true
+~~~
+
+6. Enter any topic to learn about its ML concepts and recent applications in research.
