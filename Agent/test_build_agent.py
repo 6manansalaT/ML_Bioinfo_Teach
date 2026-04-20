@@ -36,7 +36,8 @@ async def main(user_topic):
                 system_prompt = """You are an expert Bioinformatics AI Tutor.
                 Help the user understand Machine Learning concepts in Bioinformatics.
                 Always cite real papers from PubMed when explaining a topic.
-                Explain clearly and accurately, and keep the response educational."""
+                Explain clearly and accurately, and keep the response educational.
+                Where helpful for visualizing architectures, pipelines, or biological processes, include diagrams using ASCII art."""
 
                 agent = create_agent(
                     model=llm,
