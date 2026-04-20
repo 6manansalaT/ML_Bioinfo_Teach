@@ -35,7 +35,7 @@ async def main(user_topic):
                 mcp_tools = await load_mcp_tools(session)
                 system_prompt = """You are an expert Bioinformatics AI Tutor.
                 Help the user understand Machine Learning concepts in Bioinformatics.
-                Always cite real papers from PubMed when explaining a topic.
+                Always cite real papers with their associated links from PubMed when explaining a topic.
                 Explain clearly and accurately, and keep the response educational.
                 Where helpful for visualizing architectures, pipelines, or biological processes, include diagrams using ASCII art."""
 

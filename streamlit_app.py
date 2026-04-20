@@ -11,7 +11,7 @@ user_query = st.text_input("🧬 What Machine Learning in Bioinformatics topic w
 key = key_press_events()
 
 if st.button("Submit"):
-    with st.spinner("Agent is working on it..."):
+    with st.spinner("Agent is consulting MCP server for PubMed articles..."):
         result = asyncio.run(test_build_agent.main(user_query))
         # st.success(result)
         st.success("Analysis Complete!")
@@ -20,7 +20,7 @@ if st.button("Submit"):
 
 
 if key == 'Enter':
-    with st.spinner("Agent is working on it..."):
+    with st.spinner("Agent is consulting MCP server for PubMed articles..."):
         result = asyncio.run(test_build_agent.main(user_query))
         # st.success(result)
         st.success("Analysis Complete!")
