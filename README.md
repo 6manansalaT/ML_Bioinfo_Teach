@@ -43,10 +43,10 @@ pip install rich
 streamlit run streamlit_app.py
 ~~~
 
-    If that fails to run, change your current working directory as ML_Bioinfo_Teach and run this below.
-    ~~~
-    PYTHONPATH=. python -m streamlit run streamlit_app.py
-    ~~~
+If that fails to run, change your current working directory as ML_Bioinfo_Teach and run this below.
+~~~
+PYTHONPATH=. python -m streamlit run streamlit_app.py
+~~~
     
 5. Set up .env in the ML_Bioinfo_Teach/Agent directory with your API keys.
 ~~~
