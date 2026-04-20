@@ -11,10 +11,18 @@ user_query = st.text_input("🧬 What Machine Learning in Bioinformatics topic w
 key = key_press_events()
 
 if st.button("Submit"):
-    result = asyncio.run(test_build_agent.main(user_query))
-    st.success(result)
+    with st.spinner("Agent is working on it..."):
+        result = asyncio.run(test_build_agent.main(user_query))
+        # st.success(result)
+        st.success("Analysis Complete!")
+        # st.code(result, language="markdown") # This keeps your sequences perfectly aligned
+        st.markdown(result)
+
 
 if key == 'Enter':
-    result = asyncio.run(test_build_agent.main(user_query))
-    st.success(result)
-
+    with st.spinner("Agent is working on it..."):
+        result = asyncio.run(test_build_agent.main(user_query))
+        # st.success(result)
+        st.success("Analysis Complete!")
+        # st.code(result, language="markdown") # This keeps your sequences perfectly aligned
+        st.markdown(result)

@@ -11,6 +11,9 @@ from langchain.agents import create_agent
 console = Console(record=True)
 
 async def main(user_topic):
+
+    global console
+
     instruction = (
         f"Explain the machine learning concepts behind {user_topic}. "
         "Find 2-3 peer-reviewed relevant papers on PubMed to illustrate "
@@ -23,24 +26,24 @@ async def main(user_topic):
         args = ["-y", "@cyanheads/pubmed-mcp-server"],
         env = os.environ.copy()
     )
-    # 2. load MCP server tools
-    async with stdio_client(server_params) as (read,write):
-        async with ClientSession(read,write) as session:
-            await session.initialize()
-            mcp_tools = await load_mcp_tools(session)
-            system_prompt = """You are an expert Bioinformatics AI Tutor.
-Help the user understand Machine Learning concepts in Bioinformatics.
-Always cite real papers from PubMed when explaining a topic.
-Explain clearly and accurately, and keep the response educational."""
 
-            agent = create_agent(
-                model=llm,
-                tools=mcp_tools,
-                system_prompt=system_prompt,
-            )
+    try:
+        # 2. load MCP server tools
+        async with stdio_client(server_params) as (read,write):
+            async with ClientSession(read,write) as session:
+                await session.initialize()
+                mcp_tools = await load_mcp_tools(session)
+                system_prompt = """You are an expert Bioinformatics AI Tutor.
+                Help the user understand Machine Learning concepts in Bioinformatics.
+                Always cite real papers from PubMed when explaining a topic.
+                Explain clearly and accurately, and keep the response educational."""
 
-            
-            try:
+                agent = create_agent(
+                    model=llm,
+                    tools=mcp_tools,
+                    system_prompt=system_prompt,
+                )
+
                 result = await agent.ainvoke(
                     {
                         "messages": [
@@ -48,11 +51,13 @@ Explain clearly and accurately, and keep the response educational."""
                         ]
                     }
                 )
+                console = Console(record=True)
                 console.print("\n[bold green]--- Study Results ---[/bold green]")
                 final_message = result["messages"][-1].text
                 console.print(Markdown(final_message))
                 res_string = console.export_text()
-                return res_string
+                # return res_string
+                return final_message
 
-            except Exception as e:
-                console.print(f"[bold red]Error during execution:[/bold red] {e}")
+    except Exception as e:
+        console.print(f"[bold red]Error during execution:[/bold red] {e}")
